@@ -1,15 +1,10 @@
-ifdef DISABLE_SHADOWSOCKS
+
 OBJS := parser.o main.o redsocks.o log.o direct.o ipcache.o autoproxy.o http-connect.o \
         socks4.o socks5.o http-relay.o base.o base64.o md5.o http-auth.o utils.o redudp.o socks5-udp.o \
         tcpdns.o gen/version.o
 CFLAGS +=-fPIC -O3 -DDISABLE_SHADOWSOCKS
 FEATURES += DISABLE_SHADOWSOCKS
-else
-OBJS := parser.o main.o redsocks.o log.o direct.o ipcache.o autoproxy.o encrypt.o shadowsocks.o http-connect.o \
-        socks4.o socks5.o http-relay.o base.o base64.o md5.o http-auth.o utils.o redudp.o socks5-udp.o shadowsocks-udp.o \
-        tcpdns.o gen/version.o
-CFLAGS +=-fPIC -O3
-endif
+
 SRCS := $(OBJS:.o=.c)
 CONF := config.h
 DEPS := .depend

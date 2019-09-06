@@ -65,15 +65,9 @@ struct bound_udp4 {
 };
 
 extern udprelay_subsys socks5_udp_subsys;
-#if !defined(DISABLE_SHADOWSOCKS)
-extern udprelay_subsys shadowsocks_udp_subsys;
-#endif
 static udprelay_subsys *relay_subsystems[] =
 {
     &socks5_udp_subsys,
-    #if !defined(DISABLE_SHADOWSOCKS)
-    &shadowsocks_udp_subsys,
-    #endif
 };
 /***********************************************************************
  * Helpers
